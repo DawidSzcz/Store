@@ -1,0 +1,9 @@
+  <% @orders.each do |o| %>
+    <p><span style="font-weight: bold"> Order Date: </span> <%=o.orderDate%></p>
+      <p><span style="font-weight: bold"> Customer Name: </span> <%=o.ustomerName%></p>
+      <span style="font-weight: bold">Produkty:</span><br/>
+      <% o.products.each do |p| %>
+         <%= p.name %>
+         <%= p.price %>
+      <%end%>
+  <%end%>
