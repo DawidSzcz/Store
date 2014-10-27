@@ -1,9 +1,22 @@
-  <% @orders.each do |o| %>
+<% i = 0%>
+<% @orders.each do |o| %>
+    <h2>Order No. <%=i%></h2>
     <p><span style="font-weight: bold"> Order Date: </span> <%=o.orderDate%></p>
       <p><span style="font-weight: bold"> Customer Name: </span> <%=o.ustomerName%></p>
       <span style="font-weight: bold">Produkty:</span><br/>
-      <% o.products.each do |p| %>
-         <%= p.name %>
-         <%= p.price %>
-      <%end%>
+       <% d =0 %>
+       <table>
+        <th>Nazwa</th><th>Cena</th>
+        <% o.products.each do |p| %>
+             <tr>
+                <td><%= p.name %></td>
+                <td><%= p.price %></td>
+             </tr>
+             <%d = d + p.price %>
+        <%end%>
+        <td><span style="font-weight: bold">Suma:</span></td>
+        <td><%=d%></td>
+      </table>
   <%end%>
+
+<%= link_to 'Produkty', products_path %>
